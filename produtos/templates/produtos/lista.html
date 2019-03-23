@@ -1,0 +1,98 @@
+<!-- Template Lista.html -->
+{% extends 'gestao_produtos/_layouts/base.html' %}
+{% block title %}Gestão de Produtos | Lista{% endblock %}
+
+{% block conteudo %}
+<div class="container">
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'produtos:lista' %}">Meus Produtos</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'produtos:lista' %}">Lista de produtos<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cadastro novo produto</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav float-md-right">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Perfil
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Editar</a>
+            <a class="dropdown-item" href="#">Sair</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col">
+      <div class="mt-3">
+        <h5>Bem-Vindo, {{ user.first_name}} {{ user.last_name }}</h5>
+        <p>Esses são os produtos que você tem cadastrados</p>
+      </div>
+      <div class="table-responsive-md">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Quantidade</th>
+              <th scope="col">Valor</th>
+              <th scope="col" colspan="2">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for Produto in Produtos %}
+              <tr>
+                <th scope="row">{{ Produto.id }}</th>
+                <td>{{ Produto.nome}}</td>
+                <td>{{ Produto.descricao}}</td>
+                <td>{{ Produto.qtd}}</td>
+                <td>{{ Produto.preco}}</td>
+                <td><a class="btn btn-outline-info" href="#" role="button">Editar</a></td>
+                <td>
+                  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                    Excluir
+                  </button>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Atenção</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          A exclusão aqui ainda não esta funcionando :/
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+          <form method="POST" action="">
+            {% csrf_token %}
+            <button class="btn btn-danger" disabled>Excluir</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

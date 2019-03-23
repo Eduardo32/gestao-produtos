@@ -1,0 +1,30 @@
+<!-- Template Base.html -->
+<!doctype html>
+<html lang="pt-br">
+    {% load static %}
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'gestao_produtos/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'gestao_produtos/css/style.css' %}">
+
+        <title>{% block title %}Title{% endblock %}</title>
+    </head>
+    <body>
+        {% block navbar %}
+        {% endblock %}
+
+        {% block conteudo %}
+        {% endblock %}
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'gestao_produtos/js/jquery.js' %}"></script>
+        <script src="{% static 'gestao_produtos/js/popper.js' %}"></script>
+        <script src="{% static 'gestao_produtos/js/bootstrap.js' %}"></script>
+        <script src="{% static 'gestao_produtos/js/validacao.js' %}"></script>
+    </body>
+</html>
