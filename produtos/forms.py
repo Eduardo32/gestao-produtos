@@ -7,3 +7,7 @@ class SalvaProdutoForm(forms.ModelForm):
         model = Produto
 
         fields = '__all__'
+
+        exclude = [
+            'usuario',
+        ]

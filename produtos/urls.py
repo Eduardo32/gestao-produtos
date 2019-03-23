@@ -6,6 +6,6 @@ app_name = 'produtos'
 urlpatterns = [
     path('', ProdutoListView.as_view(), name='lista'),
     path('salvar/', ProdutoCreateView.as_view(), name='novo'),
-    path('atualizar/<int:pk>', ProdutoUpdateView.as_view(), name='atualiza'),
-    path('excluir/<int:pk>', ProdutoDeleteView.as_view(), name='exclui'),
+    path('atualizar/<int:pk>/', ProdutoUpdateView.as_view(), name='atualiza'),
+    path('excluir/<int:pk>/', ProdutoDeleteView.as_view(), name='exclui'),
 ]

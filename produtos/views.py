@@ -5,12 +5,15 @@ from produtos.forms import SalvaProdutoForm
 
 
 class ProdutoListView(ListView):
-    #usuario = 1
 
-    #queryset = Produto.objetos.filter(usuario=usuario)
     template_name = 'produtos/lista.html'
     model = Produto
     context_object_name = 'Produtos'
+
+    def get_queryset(self):
+        usuario = self.request.user.id
+        queryset = Produto.objetos.filter(usuario=usuario)
+        return queryset
 
 
 class ProdutoCreateView(CreateView):
@@ -19,11 +22,20 @@ class ProdutoCreateView(CreateView):
     form_class = SalvaProdutoForm
     success_url = reverse_lazy('produtos:lista')
 
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super(ProdutoCreateView, self).form_valid(form)
+
 
 class ProdutoUpdateView(UpdateView):
     template_name = 'produtos/atualiza.html'
     model = Produto
-    fields = '__all__'
+    fields = [
+        'nome',
+        'descricao',
+        'qtd',
+        'preco',
+    ]
     success_url = reverse_lazy('produtos:lista')
 
 
