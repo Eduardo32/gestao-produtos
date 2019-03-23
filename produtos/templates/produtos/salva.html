@@ -1,0 +1,88 @@
+{% extends 'gestao_produtos/_layouts/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}Gestão de Produtos | Novo{% endblock %}
+
+{% block conteudo %}
+<div class="container">
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'produtos:lista' %}">Meus Produtos</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'produtos:lista' %}">Lista de produtos</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'produtos:novo' %}">Cadastro novo produto <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav float-md-right">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Perfil
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Editar</a>
+            <a class="dropdown-item" href="#">Sair</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="row mt-5">
+    <div class="col">
+      <form class="needs-validation mt-3" method="POST" novalidate>
+        {% csrf_token %}
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-12">
+            <label for="{{ form.nome.id_for_label }}">Nome</label>
+            {% render_field form.nome class+="form-control" placeholder+="Nome" %}
+            <div class="invalid-feedback">
+              Esse campo é obrigatório
+            </div>
+          </div>
+        </div>
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md">
+            <label for="{{ form.descricao.id_for_lable }}">Descrição</label>
+            {% render_field form.descricao class+="form-control" placeholder+="Descrição do produto" %}
+            <div class="invalid-feedback">
+              Esse campo é obrigatório
+            </div>
+          </div>
+        </div>
+        <div class="form-row justify-content-center ">
+          <div class="form-group col-md-6">
+            <label for="{{ form.qtd.id_for_lable  }}">Quantidade</label>
+            {% render_field form.qtd class+="form-control" placeholder+="Qunatidade no estoque" %}
+          </div>
+          <div class="form-group  col-md-6">
+            <label for="{{ form.preco.id_for_lable }}">Preço</label>
+            {% render_field form.preco class+="form-control" placeholder+="Preço desse produto" %}
+            <div class="invalid-feedback">
+              Esse campo é obrigatório
+            </div>
+          </div>
+        </div>
+        <div class="form-row justify-content-center">
+          <div class="form-group col-md-12">
+            <label for="{{ form.usuario.id_for_label }}">Nome</label>
+            {% render_field form.usuario class+="form-control" type+="text" %}
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-md-10 text-right">
+            <button type="reset" class="btn btn-outline-secondary">Limpar</button>
+            <button class="btn btn-outline-primary">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

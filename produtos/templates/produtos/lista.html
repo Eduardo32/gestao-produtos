@@ -15,7 +15,7 @@
           <a class="nav-link" href="{% url 'produtos:lista' %}">Lista de produtos<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Cadastro novo produto</a>
+          <a class="nav-link" href="{% url 'produtos:novo' %}">Cadastro novo produto</a>
         </li>
       </ul>
       <ul class="navbar-nav float-md-right">
@@ -58,12 +58,8 @@
                 <td>{{ Produto.descricao}}</td>
                 <td>{{ Produto.qtd}}</td>
                 <td>{{ Produto.preco}}</td>
-                <td><a class="btn btn-outline-info" href="#" role="button">Editar</a></td>
-                <td>
-                  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-                    Excluir
-                  </button>
-                </td>
+                <td><a class="btn btn-outline-info" href="{% url 'produtos:atualiza' Produto.id %}" role="button">Editar</a></td>
+                <td><a class="btn btn-outline-danger" href="{% url 'produtos:exclui' Produto.id %}" role="button">Excluir</a></td>
               </tr>
             {% endfor %}
           </tbody>

@@ -5,9 +5,9 @@ from produtos.forms import SalvaProdutoForm
 
 
 class ProdutoListView(ListView):
-    usuario = 1
+    #usuario = 1
 
-    queryset = Produto.objetos.filter(usuario=usuario)
+    #queryset = Produto.objetos.filter(usuario=usuario)
     template_name = 'produtos/lista.html'
     model = Produto
     context_object_name = 'Produtos'
@@ -16,7 +16,7 @@ class ProdutoListView(ListView):
 class ProdutoCreateView(CreateView):
     template_name = 'produtos/salva.html'
     model = Produto
-    form = SalvaProdutoForm
+    form_class = SalvaProdutoForm
     success_url = reverse_lazy('produtos:lista')
 
 
@@ -30,5 +30,5 @@ class ProdutoUpdateView(UpdateView):
 class ProdutoDeleteView(DeleteView):
     template_name = 'produtos/exclui.html'
     model = Produto
-    context_object_name = 'produto'
+    context_object_name = 'Produto'
     success_url = reverse_lazy('produtos:lista')
