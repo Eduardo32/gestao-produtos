@@ -1,0 +1,51 @@
+<!-- templates/registration/login.html -->
+{% extends 'gestao_produtos/_layouts/base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}Gestão de Produtos | Login{% endblock %}
+
+{% block conteudo %}
+<div class="container">
+  <div class="row vh-100 align-items-center justify-content-center">
+    <div class="col-md-4 col-sm-8">
+      {% if form.errors %}
+        <div class="row">
+          <div class="col">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Erro!</strong> Username ou senha inválida.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      <div class="card">
+        <div class="card-header">
+          Login
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="inputUsername">Usuário</label>
+              {% render_field form.username class+="form-control" placeholder+="Username" id+="inputUsername" %}
+            </div>
+            <div class="form-group">
+              <label for="inputSenha">Senha</label>
+              {% render_field form.password class+="form-control" placeholder+="Senha" id+="inputSenha" %}
+            </div>
+              <div class="text-right">
+                <button type="submit" class="btn btn-outline-primary">Entrar</button>
+              </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          Crie uma conta <a href="{% url 'accounts:signup' %}">aqui</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
