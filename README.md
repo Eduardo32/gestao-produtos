@@ -11,3 +11,49 @@ Um CRUD simples onde é possivel:
 * Cadastrar novos produtos
 * Editar as informações de um protudo cadastrado
 * Excluir produtos
+
+## Para Instalar
+
+Para criar uma venv executar:
+
+```bash
+python -m venv [nome_da_venv]
+```
+
+Para ativar a _venv_ executar:
+
+```bash
+[nome_da_venv]\Scripts\activate
+```
+
+Para instalar as dependências do projeto, executar:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+Criar um arquivo chamado _.env_ criar as seguintes variaves:
+
+* SECRET_KEY (Como um secret key que você pode gerar [aqui](https://djskgen.herokuapp.com/) ou em outro site de sua preferências)
+* DEBUG (Para setar o bebug como _True_ que está setado como _False_ por padrão)
+* DATABASE_URL (Caso queira usar o banco de daados diferente do _SQLite3_)
+
+Para criar as _Migrations_:
+
+```bash
+python manage.py makemigrations
+```
+
+Para efetivar as _Migrations_ no banco de dados:
+
+```bash
+python manage.py migrate
+```
+
+## Para Executar
+
+Para executar o Servidor de testes do Django, execute:
+
+```bash
+python manage.py runserver
+```
