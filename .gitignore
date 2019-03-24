@@ -2,4 +2,3 @@
 *.sqlite3
 *pyc
 .env
-gestao_produtos/migrations
