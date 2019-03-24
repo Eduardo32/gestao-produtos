@@ -6,8 +6,8 @@ Projeto gestão de produtos desenvolvido em Python com Django para o curso [Dese
 
 Um CRUD simples onde é possivel:
 
+* Criar uma conta com username e senha
 * Consultar uma lista de produtos
 * Cadastrar novos produtos
-* Ver detalhes de um produto cadastrado
 * Editar as informações de um protudo cadastrado
 * Excluir produtos

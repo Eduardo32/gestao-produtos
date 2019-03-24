@@ -3,6 +3,53 @@
 {% block title %}Gestão de Produtos | Apresantação{% endblock %}
 
 {% block conteudo %}
-<h1>olá, Mundo!!!</h1>
-<a href="{% url 'accounts:login' %}">login</a>
+<div class="container">
+  <div class="row vh-100 align-items-center justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+            Bem-vindo
+        </div>
+        <div class="card-body">
+          <h1 class="card-title">Projeto Gestão de Produtos</h1>
+          <p class="card-text">
+            Projeto gestão de produtos desenvolvido em Python com Django para o curso <a href="https://www.udemy.com/django-20-heroku/" target="_blank">Desenvolva uma
+            aplicação com Django 2.0 e deploy no Heroku</a> do prof. <a href="https://www.udemy.com/user/gpzimpacheco/" target="_blank">Gregory Pacheco</a>.
+          </p>
+          <h2>Em que consiste o projeto</h2>
+          <p class="card-text">Um CRUD simples onde é possivel:</p>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-reg" role="tab" aria-controls="home">Criar uma conta</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-login" role="tab" aria-controls="profile">Logar</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-prod" role="tab" aria-controls="messages">Registrar Produtos</a>
+              </div>
+            </div>
+            <div class="col-md-8 mt-3">
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="list-reg" role="tabpanel" aria-labelledby="list-home-list">
+                  Você pode criar uma conta <b>Username</b> e <b>Senha</b> que você usara para se autenticar na
+                  aplicação. Algumas coisa ainda não estão 100% (risos), por exemplo, inda não estou pegando as mensagem
+                  de validalição quando algo está errado, senha muito custa por exemplo. Mas em breve estara
+                  funcionando. Para criar uma conta click <a href="{% url 'accounts:signup' %}">aqui</a>.
+                </div>
+                <div class="tab-pane fade" id="list-login" role="tabpanel" aria-labelledby="list-profile-list">
+                  Depois que você criar uma conta ou caso você já tenha uma pode fazer login <a href="{% url 'login' %}">aqui</a>.
+                </div>
+                <div class="tab-pane fade" id="list-prod" role="tabpanel" aria-labelledby="list-messages-list">
+                  E uma vez dentro da aplicação você podera cadastrar produtos com <b>nome</b>, <b>descrição</b>,
+                  <b>quantidade</b> e <b>valor</b>. Podera tambem editar as produtos cadastrados clicando no botão
+                  <b>editar</b> na listagem de produtos ou se desejar pode tambem <b>excluir</b> os produtos.
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="{% url 'login' %}" class="btn btn-outline-primary mt-3">Entrar</a>
+          <a href="https://github.com/Eduardo32/gestao-produtos" target="_blank" class="btn btn-outline-info mt-3">Github</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock conteudo %}
