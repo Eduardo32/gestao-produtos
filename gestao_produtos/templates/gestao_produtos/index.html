@@ -35,7 +35,7 @@
                   funcionando. Para criar uma conta click <a href="{% url 'accounts:signup' %}">aqui</a>.
                 </div>
                 <div class="tab-pane fade" id="list-login" role="tabpanel" aria-labelledby="list-profile-list">
-                  Depois que você criar uma conta ou caso você já tenha uma pode fazer login <a href="{% url 'login' %}">aqui</a>.
+                  Depois que você criar uma conta ou caso você já tenha uma pode fazer login <a href="{% url 'accounts:login' %}">aqui</a>.
                 </div>
                 <div class="tab-pane fade" id="list-prod" role="tabpanel" aria-labelledby="list-messages-list">
                   E uma vez dentro da aplicação você podera cadastrar produtos com <b>nome</b>, <b>descrição</b>,
@@ -45,7 +45,7 @@
               </div>
             </div>
           </div>
-          <a href="{% url 'login' %}" class="btn btn-outline-primary mt-3">Entrar</a>
+          <a href="{% url 'accounts:login' %}" class="btn btn-outline-primary mt-3">Entrar</a>
           <a href="https://github.com/Eduardo32/gestao-produtos" target="_blank" class="btn btn-outline-info mt-3">Github</a>
         </div>
       </div>

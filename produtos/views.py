@@ -6,7 +6,7 @@ from produtos.forms import SalvaProdutoForm
 
 
 class ProdutoListView(LoginRequiredMixin, ListView):
-    login_url = 'login'
+    login_url = 'accounts:login'
     template_name = 'produtos/lista.html'
     model = Produto
     context_object_name = 'Produtos'
@@ -18,7 +18,7 @@ class ProdutoListView(LoginRequiredMixin, ListView):
 
 
 class ProdutoCreateView(LoginRequiredMixin, CreateView):
-    login_url = 'login'
+    login_url = 'accounts:login'
     template_name = 'produtos/salva.html'
     model = Produto
     form_class = SalvaProdutoForm
@@ -30,7 +30,7 @@ class ProdutoCreateView(LoginRequiredMixin, CreateView):
 
 
 class ProdutoUpdateView(LoginRequiredMixin, UpdateView):
-    login_url = 'login'
+    login_url = 'accounts:login'
     template_name = 'produtos/atualiza.html'
     model = Produto
     fields = [
@@ -43,7 +43,7 @@ class ProdutoUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class ProdutoDeleteView(LoginRequiredMixin, DeleteView):
-    login_url = 'login'
+    login_url = 'accounts:login'
     template_name = 'produtos/exclui.html'
     model = Produto
     context_object_name = 'Produto'

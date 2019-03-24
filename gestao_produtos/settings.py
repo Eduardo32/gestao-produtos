@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['projeto-gestao-produtos.herokuapp.com']
 
 
 # Application definition
@@ -124,8 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 LOGIN_REDIRECT_URL = 'produtos:lista'
 
 LOGOUT_REDIRECT_URL = 'index'
-
-
