@@ -1,11 +1,12 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from gestao_produtos.models import Produto
 from produtos.forms import SalvaProdutoForm
 
 
-class ProdutoListView(ListView):
-
+class ProdutoListView(LoginRequiredMixin, ListView):
+    login_url = 'login'
     template_name = 'produtos/lista.html'
     model = Produto
     context_object_name = 'Produtos'
@@ -16,7 +17,8 @@ class ProdutoListView(ListView):
         return queryset
 
 
-class ProdutoCreateView(CreateView):
+class ProdutoCreateView(LoginRequiredMixin, CreateView):
+    login_url = 'login'
     template_name = 'produtos/salva.html'
     model = Produto
     form_class = SalvaProdutoForm
@@ -27,7 +29,8 @@ class ProdutoCreateView(CreateView):
         return super(ProdutoCreateView, self).form_valid(form)
 
 
-class ProdutoUpdateView(UpdateView):
+class ProdutoUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = 'login'
     template_name = 'produtos/atualiza.html'
     model = Produto
     fields = [
@@ -39,7 +42,8 @@ class ProdutoUpdateView(UpdateView):
     success_url = reverse_lazy('produtos:lista')
 
 
-class ProdutoDeleteView(DeleteView):
+class ProdutoDeleteView(LoginRequiredMixin, DeleteView):
+    login_url = 'login'
     template_name = 'produtos/exclui.html'
     model = Produto
     context_object_name = 'Produto'

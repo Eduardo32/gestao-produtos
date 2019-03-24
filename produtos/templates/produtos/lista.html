@@ -1,5 +1,6 @@
 <!-- Template Lista.html -->
 {% extends 'gestao_produtos/_layouts/base.html' %}
+
 {% block title %}Gestão de Produtos | Lista{% endblock %}
 
 {% block conteudo %}
@@ -24,8 +25,7 @@
             Perfil
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Editar</a>
-            <a class="dropdown-item" href="#">Sair</a>
+            <a class="dropdown-item" href="{% url 'accounts:logout' %}">Sair</a>
           </div>
         </li>
       </ul>
@@ -35,7 +35,7 @@
   <div class="row justify-content-center mt-5">
     <div class="col">
       <div class="mt-3">
-        <h5>Bem-Vindo, {{ user.first_name}} {{ user.last_name }}</h5>
+        <h5>Bem-Vindo, {{ user.username }}</h5>
         <p>Esses são os produtos que você tem cadastrados</p>
       </div>
       <div class="table-responsive-md">

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gestao_produtos',
     'produtos',
+    'accounts',
     'widget_tweaks',
 ]
 
@@ -122,5 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = 'produtos:lista'
+LOGOUT_REDIRECT_URL = 'index'
 
 

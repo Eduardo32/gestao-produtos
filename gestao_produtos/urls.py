@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
 from gestao_produtos.views import IndexTemplateView
 
 
 urlpatterns = [
     path('', IndexTemplateView.as_view(), name='index'),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('produtos/', include('produtos.urls', namespace='produtos')),
     path('admin/', admin.site.urls),
 ]
+
