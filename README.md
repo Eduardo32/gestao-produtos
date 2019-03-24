@@ -14,7 +14,7 @@ Um CRUD simples onde é possivel:
 
 ## Para Instalar
 
-Para criar uma venv executar:
+Para criar uma _venv_ executar:
 
 ```bash
 python -m venv [nome_da_venv]
@@ -34,7 +34,7 @@ pip install -r requirements-dev.txt
 
 Criar um arquivo chamado _.env_ criar as seguintes variaves:
 
-* SECRET_KEY (Como um secret key que você pode gerar [aqui](https://djskgen.herokuapp.com/) ou em outro site de sua preferências)
+* SECRET_KEY (Como um secret key que você pode gerar [aqui](https://djskgen.herokuapp.com/) ou em outro site de sua preferência)
 * DEBUG (Para setar o bebug como _True_ que está setado como _False_ por padrão)
 * DATABASE_URL (Caso queira usar o banco de daados diferente do _SQLite3_)
 
