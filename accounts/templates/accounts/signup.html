@@ -13,7 +13,14 @@
         <div class="row">
           <div class="col">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>Erro!</strong> Ainda tem que pegar a mensagem de erro
+              <strong>Erro!</strong>
+              {% for field in form %}
+                {% if field.errors %}
+                  {% for error in field.errors %}
+                    {{ error }}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
