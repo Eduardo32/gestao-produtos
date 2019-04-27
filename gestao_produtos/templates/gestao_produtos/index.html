@@ -1,5 +1,7 @@
 {% extends 'gestao_produtos/_layouts/base.html' %}
 
+{% load i18n %}
+
 {% block title %}Gestão de Produtos | Apresantação{% endblock %}
 
 {% block conteudo %}
@@ -8,7 +10,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-            Bem-vindo
+            {% trans "Bem-vindo" %}
         </div>
         <div class="card-body">
           <h1 class="card-title">Projeto Gestão de Produtos</h1>
