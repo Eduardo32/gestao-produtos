@@ -57,3 +57,5 @@ Para executar o Servidor de testes do Django, execute:
 ```bash
 python manage.py runserver
 ```
+
+## Projeto disponível para teste em: [projeto-gestao-produtos](https://projeto-gestao-produtos.herokuapp.com/) 
